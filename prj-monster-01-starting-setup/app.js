@@ -49,11 +49,11 @@ const game = Vue.createApp({
     healingWithTime() {
         that = this
         setInterval( function() {
-            if (that.playerHealth < 100 || that.monsterHealth < 100) {
-                that.playerHealth += 1;
-                that.monsterHealth += 1;
+            if (that.playerHealth < 100 && that.monsterHealth < 100) {
+                that.playerHealth += 0.05;
+                that.monsterHealth += 0.05;
             }
-        }, 2000)
+        }, 5)
     },
     surrender() {
           this.winner = 'monster'
