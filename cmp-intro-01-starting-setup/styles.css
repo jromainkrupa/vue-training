@@ -1,47 +1,3 @@
-<template>
-  <section>
-    <header>
-      <h1>My friends</h1>
-    </header>
-    <ul>
-      <friend-contact 
-        name="Manuel Lorenz"
-        phone-number="0909008"
-        email-address="iiuiuiiu"
-        is-favorite="1"></friend-contact>
-      <friend-contact
-        name="julie"
-        phone-number="0909787887887"
-        email-address="toto@tata.com"
-        is-favorite="0"></friend-contact>
-    </ul>
-  </section>
-</template>
-
-<script>
-export default {
-  data() {
-    return {
-      friends: [
-        {
-          id: 'manuel',
-          name: 'manuel loren',
-          phone: '090909099089',
-          email: 'jofeo@ioou.com',
-        },
-        {
-          id: 'julie',
-          name: 'julie jon',
-          phone: '090909089',
-          email: 'jofeo@ioou.com',
-        }
-      ]
-    }
-  }
-}
-</script>
-
-<style>
 * {
   box-sizing: border-box;
 }
@@ -105,5 +61,3 @@ header {
   border-color: #ec3169;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
 }
-
-</style>
