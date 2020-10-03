@@ -13,7 +13,7 @@
         name="julie"
         phone-number="0909787887887"
         email-address="toto@tata.com"
-        is-favorite="0"></friend-contact>
+        ></friend-contact>
     </ul>
   </section>
 </template>
