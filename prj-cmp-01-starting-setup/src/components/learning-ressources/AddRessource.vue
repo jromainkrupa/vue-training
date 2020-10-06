@@ -25,11 +25,11 @@ export default {
     inject: ['addRessource'],
     methods: {
         submitData() {
-            const enteredTitle = this.$refs.titleInput.value
-            const enteredDescription = this.$refs.descriptionInput.value
-            const enteredLink = this.$refs.linkInput.value
+            const enteredTitle = this.$refs.titleInput.value;
+            const enteredDescription = this.$refs.descriptionInput.value;
+            const enteredLink = this.$refs.linkInput.value;
 
-            this.addRessource(enteredTitle,enteredDescription,enteredLink)
+            this.addRessource(enteredTitle,enteredDescription,enteredLink);
         }
     }
 }

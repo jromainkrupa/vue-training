@@ -47,7 +47,7 @@ export default {
             return this.selectedTab === 'stored-ressources' ? null : 'flat'
         },
         addResButtonMode() {
-            return this.selectedTab === 'add-ressources' ? null : 'flat'
+            return this.selectedTab === 'add-ressource' ? null : 'flat'
         }
     },
     methods: {
