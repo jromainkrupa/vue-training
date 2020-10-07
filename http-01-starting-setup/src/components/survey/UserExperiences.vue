@@ -45,11 +45,12 @@ export default {
           });
         }
         this.results = results;
-      })      
+      });      
     },
-    mounted() {
-      this.loadExperiences();
-    }
+  },
+  mounted() {
+    this.loadExperiences();
+    console.log('here')
   }
 };
 </script>
