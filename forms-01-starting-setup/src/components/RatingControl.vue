@@ -1,8 +1,8 @@
 <template>
     <ul>
-        <li><button type="button" @click="activate('poor')">Poor</button></li>
-        <li><button type="button" @click="activate('average')">Average</button></li>
-        <li><button type="button" @click="activate('great')">Great</button></li>
+        <li :class="{active: activeOption === 'poor'}"><button type="button" @click="activate('poor')">Poor</button></li>
+        <li :class="{active: activeOption === 'average'}"><button type="button" @click="activate('average')">Average</button></li>
+        <li :class="{active: activeOption === 'great'}"><button type="button" @click="activate('great')">Great</button></li>
     </ul>
 </template>
 <script>
@@ -22,10 +22,10 @@ export default {
 
 <style scoped>
 .active {
-    border-color: rgb(59, 20, 59);
+    border-color: rgb(234, 15, 234);
 }
 .active button {
-    color: rgb(59, 20, 59)
+    color: rgb(234, 15, 234);
 }
 ul {
     list-style: none;
