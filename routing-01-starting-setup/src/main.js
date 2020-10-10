@@ -5,13 +5,17 @@ import App from './App.vue';
 import TeamsList from './components/teams/TeamsList.vue'
 import UsersList from './components/users/UsersList.vue'
 import TeamMembers from './components/teams/TeamMembers.vue'
+import notFound from './components/nav/notFound.vue'
 
 const router =  createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/teams', component: TeamsList },
+        { path: '/', redirect: '/teams' }, // redirect
+        // { path: '/teams', component: TeamsList, alias: '/' },
+        { path: '/teams', component: TeamsList, alias: '/' },
         { path: '/users', component: UsersList },
-        { path: '/teams/:teamId', component: TeamMembers, props: true }
+        { path: '/teams/:teamId', component: TeamMembers, props: true },
+        { path:  '/:notFound(.*)', component: notFound } // catch eveyrthing after the /
     ],
     linkActiveClass: 'active', // use to avoid 'link-active-class' css selector and use a.active instead
 });// router creation
