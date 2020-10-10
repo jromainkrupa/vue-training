@@ -11,7 +11,7 @@ const router =  createRouter({
     routes: [
         { path: '/teams', component: TeamsList },
         { path: '/users', component: UsersList },
-        { path: '/teams/:teamId', component: TeamMembers }
+        { path: '/teams/:teamId', component: TeamMembers, props: true }
     ],
     linkActiveClass: 'active', // use to avoid 'link-active-class' css selector and use a.active instead
 });// router creation
