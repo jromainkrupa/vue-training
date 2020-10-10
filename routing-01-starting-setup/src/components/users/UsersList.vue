@@ -19,6 +19,11 @@ export default {
       this.$router.push('/teams')
       // many methods thanks to the router this.$router.forward()
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log('before route enter inside component')
+    console.log(to, from)
+    next()
   }
 };
 </script>
