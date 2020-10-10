@@ -53,10 +53,10 @@ router.beforeEach(function(to, from, next) {
     next() // pass tru, false or string (route) or object with name: 'team-mebers', params { teamId: 't2}
 }); // every time you navigate from a page to another
 
-router.afterEach(to, from) {
+router.afterEach(function(to, from){ 
     console.log(to, from) // sending analytics data for example 
     // not useful to authentication or user view control
-}
+})
 
 const app = createApp(App)
 
