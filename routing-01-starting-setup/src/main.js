@@ -27,6 +27,16 @@ const router =  createRouter({
         { path:  '/:notFound(.*)', component: notFound } // catch eveyrthing after the /
     ],
     linkActiveClass: 'active', // use to avoid 'link-active-class' css selector and use a.active instead
+    scrollBehavior(to, from, savedPosition) {
+        console.log(to, from, savedPosition) // to and from are pages you are going to and coming from ,
+        if (savedPosition) {
+            return savedPosition; // when you click previous you come back the previous posiotn
+        }
+        return {
+            left: 0, // you are coming back at the top
+            top: 0 
+        } 
+    }
 });// router creation
 
 const app = createApp(App)
