@@ -14,7 +14,6 @@ export default {
       return '/teams/' + this.id
     }
   }
-
 };
 </script>
 
