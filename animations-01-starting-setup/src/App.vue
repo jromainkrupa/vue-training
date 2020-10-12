@@ -11,7 +11,9 @@
     @after-enter="afterEnter"
     @before-leave="beforeLeave"
     @leave="leave"
-    @after-leave="afterLeave">
+    @after-leave="afterLeave"
+    @enter-cancelled="enterCancelled"
+    @leave-cancelled="leaveCancelled">
       <p v-if="paraIsVisible">This is only sometimes visible</p>
     </transition>
     <button @click="toggleParagraph">Toggle paragraph</button>
@@ -38,10 +40,20 @@ export default {
       UsersAreVisible: false,
       dialogIsVisible: false,
       animatedBlock: false,
-      paraIsVisible: false
+      paraIsVisible: false,
+      enterInterval: null,
+      leaveInterval: null
     };
   },
   methods: {
+    enterCancelled(el) {
+      console.log(el)
+      clearInterval(this.enterInterval)
+    },
+    leaveCancelled(el) {
+      console.log(el)
+      clearInterval(this.enterInterval)
+    },
     beforeEnter(el) {
       console.log('before enter')
       console.log(el)
@@ -51,11 +63,11 @@ export default {
       console.log('enter')
       console.log(el)
       let round = 1
-      const interval = setInterval(function() {
+      this.enterInterval  = setInterval(() => {
         el.style.opacity = round * 0.01;
         round++
         if (round > 100) {
-          clearInterval(interval)
+          clearInterval(this.enterInterval)
           done() // it says that our function is done
         }
       }, 20)
@@ -72,11 +84,11 @@ export default {
       console.log('leave')
       console.log(el)
       let round = 100
-      const interval = setInterval(function() {
+      this.enterInterval = setInterval(() => {
         el.style.opacity = round * 0.01
         round-- 
         if (round < 0) {
-          clearInterval(interval)
+          clearInterval(this.leaveInterval)
           done()
         }
       }, 20)
