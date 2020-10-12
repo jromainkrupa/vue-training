@@ -42,28 +42,47 @@ export default {
     };
   },
   methods: {
-    leave(el) {
-      console.log('leave')
+    beforeEnter(el) {
+      console.log('before enter')
       console.log(el)
-    },
-    afterLeave(el) {
-      console.log('after leave')
+      el.style.opacity = 0
+      },
+    enter(el, done) {
+      console.log('enter')
       console.log(el)
+      let round = 1
+      const interval = setInterval(function() {
+        el.style.opacity = round * 0.01;
+        round++
+        if (round > 100) {
+          clearInterval(interval)
+          done() // it says that our function is done
+        }
+      }, 20)
     },
     afterEnter(el) {
       console.log('after enter')
-      console.log(el)
-    },
-    enter(el) {
-      console.log('enter')
       console.log(el)
     },
     beforeLeave(el) {
       console.log('before leave')
       console.log(el)
     },
-    beforeEnter(el) {
-      console.log('before enter')
+    leave(el, done) {
+      console.log('leave')
+      console.log(el)
+      let round = 100
+      const interval = setInterval(function() {
+        el.style.opacity = round * 0.01
+        round-- 
+        if (round < 0) {
+          clearInterval(interval)
+          done()
+        }
+      }, 20)
+    },
+    afterLeave(el) {
+      console.log('after leave')
       console.log(el)
     },
     showUser() {
@@ -133,33 +152,6 @@ button:active {
 .animate {
   /* transform: translateX(-150px); */
   animation: slide-scale 0.3s ease-out forwards ;
-}
-.para-enter-from {
-  /* opacity: 0;
-  transform: translateY(-30px); */
-}
-
-.para-enter-active {
-  /* transition: all 0.3s ease-out; */
-  animation: slide-scale 3s ease-out
-}
-
-.para-enter-to {
-  /* opacity: 1;
-  transform: translateY(0); */
-}
-.para-leave-from {
-  /* opacity: 1;
-  transform: translateY(0); */
-}
-
-.para-leave-to {
-  /* opacity: 0;
-  transform: translateY(+30px); */
-}
-
-.para-leave-active  {
-  animation: slide-scale 0.3s ease-out
 }
 .fade-button-enter-from 
 .fade-button-leave-from {
