@@ -54,10 +54,14 @@ li {
     transform: translateX(0px);
 }
 .list-data-leave-active {
-    transition: all 1s ease-in
+    transition: all 1s ease-in;
+    position: absolute;
 }
 .list-data-leave-to {
     opacity: 1;
     transform: translateX(30px);
+}
+.list-data-move {
+    transition: transform 0.8s ease;
 }
 </style>
